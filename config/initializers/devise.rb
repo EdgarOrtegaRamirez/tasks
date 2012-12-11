@@ -1,6 +1,13 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+require "omniauth-facebook"
+  config.omniauth :facebook, "384902461586599", "310a411d19ffa12a75c40029f8b1a174"
+  config.omniauth :facebook, "384902461586599", "310a411d19ffa12a75c40029f8b1a174", :strategy_class => OmniAuth::Strategies::Facebook
+
+  config.omniauth :facebook, "384902461586599", "310a411d19ffa12a75c40029f8b1a174",
+      :client_options => {:ssl =>{:verify => false}} # for MACOX {:ca_path => '/etc/ssl/certs'}
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
@@ -229,7 +236,4 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = "/my_engine/users/auth"
-
-  require "omniauth-facebook"
-  config.omniauth :facebook, "521700431175814", "8787d34c6a08182fb62e57bfd312e62c", {client_options: {ssl: {verify: false}}}
 end
