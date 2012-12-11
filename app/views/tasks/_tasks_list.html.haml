@@ -7,7 +7,7 @@
   %table#tasks.table.table-hover
     %tbody
       = render @tasks
-
+-#form for new task
 #new_task.modal.hide.fade{role: "dialog", tabindex: "-1"}
   = simple_form_for [@list, @list.tasks.build], remote: true, html: {'style' => 'margin: 0'} do |f|
     .modal-header
@@ -19,28 +19,28 @@
       %button.btn.btn-small{"aria-hidden" => "true", 'type' => 'button', "data-dismiss" => "modal"} Close
       = f.button :submit, class: 'btn-info'
 
-
-#myModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+-#form for edit task
+#update_task.modal.hide.fade{:role => "dialog", :tabindex => "-1"}
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
     %h3#myModalLabel Modal header
   .modal-body
     Remind me
-    = simple_form_for [@list, @list.tasks.build] do |f|
+    = simple_form_for([@list, @list.tasks.build],remote: true) do |f|
       #accordion2.accordion
         .accordion-group
           .accordion-heading
             %label.checkbox
-              %input{:type => "checkbox",id: "by-date","data-target" => "#collapseby-date", "data-toggle" => "collapse"}
+              %input{:type => "checkbox",id: "by-date","data-target" => "#collapse-by-date", "data-toggle" => "collapse"}
                 by date
-          #collapseby-date.accordion-body.collapse
+          #collapse-by-date.accordion-body.collapse
             .accordion-inner
-              
+              = f.text_field :date, :id => "datepicker"
 
         .accordion-group
           .accordion-heading
             %label.checkbox
-              %input{:type => "checkbox",id: "by-locations","data-target" => "#collapse-by-location", "data-toggle" => "collapse"}
+              %input{:type => "checkbox",id: "by-location","data-target" => "#collapse-by-location", "data-toggle" => "collapse"}
                 by location
           #collapse-by-location.accordion-body.collapse
             .accordion-inner

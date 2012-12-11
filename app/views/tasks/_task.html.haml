@@ -4,4 +4,4 @@
     %br
     =task.address
   %td
-    %a{:class => 'btn btn-primary btn-small btn-edit '+"task_#{task.id}","data-toggle" => "modal", :href => "#myModal","data-action"=>"#{list_task_path(@list, task)}","data-id"=>"#{task.id}"} Edit
+    %a{:class => 'btn btn-primary btn-small btn-edit '+"task_#{task.id}","data-toggle" => "modal", :href => "#update_task","data-action"=>"#{list_task_path(@list, task)}","data-id"=>"#{task.id}"} Edit
