@@ -1,0 +1,9 @@
+$(function(){
+  $("#by-date").live("click",function(e){
+    $("#collapseby-date").collapse('toggle');
+  });
+
+  $("#by-location").live("click",function(e){
+    $("#collapse-by-location").collapse('toggle');
+  });
+});
