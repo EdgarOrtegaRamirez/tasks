@@ -1,0 +1,20 @@
+#list_title.page-header
+  %button.btn.btn-small.pull-right{"data-target" => "#new_task", "data-toggle" => "modal", type: "button"} New Task
+  %h2
+    =@list.name
+
+#tasks_list
+  %table#lists.table.table-hover
+    %tbody
+      = render @tasks
+
+#new_task.modal.hide.fade{role: "dialog", tabindex: "-1"}
+  = simple_form_for [@list, @list.tasks.build], remote: true, html: {'style' => 'margin: 0'} do |f|
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+      %h3#myModalLabel New Task
+    .modal-body
+      = f.input :text
+    .modal-footer
+      %button.btn.btn-small{"aria-hidden" => "true", 'type' => 'button', "data-dismiss" => "modal"} Close
+      = f.button :submit, class: 'btn-info'

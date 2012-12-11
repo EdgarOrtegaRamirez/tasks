@@ -1,1 +1,3 @@
-$('#tasks').append("#{ j render @task}");
+$('#tasks_list tbody').append("#{ j render @task}");
+$('#new_task').modal('hide');
+$('#new_task input').val('');
