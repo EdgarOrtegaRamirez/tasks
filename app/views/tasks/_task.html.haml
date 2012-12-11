@@ -1,34 +1,7 @@
-#myModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-  .modal-header
-    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-    %h3#myModalLabel Modal header
-  .modal-body
-    Remind me
-    #accordion2.accordion
-      .accordion-group
-        .accordion-heading
-          %label.checkbox
-            %input{:type => "checkbox",id: "by-date","data-target" => "#collapseby-date", "data-toggle" => "collapse"}
-              by date
-        #collapseby-date.accordion-body.collapse
-          .accordion-inner
-            nñsbdljhlHSDld ljHGDLJHDGFLA SD FLASF LSDFGLA SD lsfladf lasdgflasbf
-
-      .accordion-group
-        .accordion-heading
-          %label.checkbox
-            %input{:type => "checkbox",id: "by-locations","data-target" => "#collapse-by-location", "data-toggle" => "collapse"}
-              by location
-        #collapse-by-location.accordion-body.collapse
-          .accordion-inner
-            hbñbdfñjsdf ñkjdñKJDF ÑKjsdhfñshfñsdjf  ÑKDSHFÑAJSHDF kj fñasdhfñasdfsf
-            sdfñajsdhfñasd fañksdjhf afakjdhfñjdhf fñakjsdhfañs
-  .modal-footer
-    %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
-    %a.task.btn.btn-primary{"data-remote" => "true", href: "#{edit_list_task_path(@list, task)}"} Save Changes
-
 %tr.info
   %td
-    %a.task{"data-remote" => "true", href: "#{edit_list_task_path(@list, task)}"}
-      =task.text
-    %a.btn.btn-primary.btn-small{"data-toggle" => "modal", :href => "#myModal"} Edit
+    =task.text.upcase
+    %br
+    =task.address
+  %td
+    %a{:class => 'btn btn-primary btn-small btn-edit '+"task_#{task.id}","data-toggle" => "modal", :href => "#update_task","data-action"=>"#{list_task_path(@list, task)}","data-id"=>"#{task.id}"} Edit
