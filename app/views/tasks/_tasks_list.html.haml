@@ -4,7 +4,7 @@
     =@list.name
 
 #tasks_list
-  %table#lists.table.table-hover
+  %table#tasks.table.table-hover
     %tbody
       = render @tasks
 
@@ -18,3 +18,33 @@
     .modal-footer
       %button.btn.btn-small{"aria-hidden" => "true", 'type' => 'button', "data-dismiss" => "modal"} Close
       = f.button :submit, class: 'btn-info'
+
+
+#myModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+    %h3#myModalLabel Modal header
+  .modal-body
+    Remind me
+    = simple_form_for [@list, @list.tasks.build] do |f|
+      #accordion2.accordion
+        .accordion-group
+          .accordion-heading
+            %label.checkbox
+              %input{:type => "checkbox",id: "by-date","data-target" => "#collapseby-date", "data-toggle" => "collapse"}
+                by date
+          #collapseby-date.accordion-body.collapse
+            .accordion-inner
+              
+
+        .accordion-group
+          .accordion-heading
+            %label.checkbox
+              %input{:type => "checkbox",id: "by-locations","data-target" => "#collapse-by-location", "data-toggle" => "collapse"}
+                by location
+          #collapse-by-location.accordion-body.collapse
+            .accordion-inner
+              = f.input :address
+      .modal-footer
+        %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
+        =f.button :submit, "Save Changes",{class: "task btn btn-primary","data-remote" => "true"} 
