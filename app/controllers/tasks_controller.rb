@@ -5,9 +5,12 @@ class TasksController < ApplicationController
     @task = Task.new(params[:task])
     @task.list_id = params[:list_id]
 
-    @task.save
-    respond_to do |format|
-      format.js
+    if @task.save
+      respond_to do |format|
+        format.js
+      end
+    else
+      
     end
   end
 end

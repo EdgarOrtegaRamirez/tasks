@@ -7,7 +7,7 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(params[:list])
-    @list.user = current_user
+    @list.user_id = current_user.id
     
     if @list.save
       respond_to do |format|
