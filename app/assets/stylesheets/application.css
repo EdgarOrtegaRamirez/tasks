@@ -1,40 +1,14 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
  *= require_self
  *= require_tree .
  */
 
-.btn-face, 
 .btn-face:hover { 
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); 
-    color: #ffffff; 
+    background-image: url(login_face_02.png);
 } 
 .btn-face { 
-  background-color: #0A43FF; 
-  background-image: -moz-linear-gradient(top, #000000, #002BFF); 
-  background-image: -ms-linear-gradient(top, #000000, #002BFF); 
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#000000), to(#002BFF)); 
-  background-image: -webkit-linear-gradient(top, #000000, #002BFF); 
-  background-image: -o-linear-gradient(top, #000000, #002BFF); 
-  background-image: linear-gradient(top, #000000, #002BFF); 
-  background-repeat: repeat-x; 
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#002BFF', GradientType=0); 
-  border-color: #002BFF #002BFF #0009FF; 
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); 
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false); 
-} 
-.btn-face:hover, 
-.btn-face:active, 
-.btn-face.active, 
-.btn-face.disabled, 
-.btn-face[disabled] { 
-  background-color: #002BFF; 
+  background-image: url(login_face_01.png);
+  background-repeat: no-repeat;
+  width: 430px;
+  height: 82px;
 }

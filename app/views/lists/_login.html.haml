@@ -1,1 +1,3 @@
-= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), html: {:class => "btn-face"}
+%a{href: "#{user_omniauth_authorize_path(:facebook)}"}
+  .btn-face
+

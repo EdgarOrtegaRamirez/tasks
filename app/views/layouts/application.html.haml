@@ -16,7 +16,7 @@
         -if user_signed_in?
           %li
             .btn-group
-              %a.btn.dropdown-toggle{"data-toggle" => "dropdown", :href => "#{current_user.full_name}"}
+              %a.btn.btn-primary.dropdown-toggle{"data-toggle" => "dropdown", :href => "#{current_user.full_name}"}
                 =current_user.full_name
                 %span.caret
               %ul.dropdown-menu
