@@ -2,6 +2,22 @@
   %h1 Tasks
   .row-fluid
     .span4.well
-      =render 'list'
+      %h3
+        List
+
+      = simple_form_for(@list, remote: true, html: {class: 'form-search'}) do |f|
+        = f.input :name
+        = f.button :submit, "+"
+
+      %table#lists.table.table-hover
+        %tbody
+          = render @lists
+
     .span8.well
-      =render 'tasks'
+      #list_title.page-header
+        %h2
+
+      #task_form
+
+      #tasks.well
+        
