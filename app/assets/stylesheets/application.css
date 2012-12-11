@@ -6,7 +6,8 @@
 .btn-face:hover { 
     background-image: url(login_face_02.png);
 } 
-.btn-face { 
+.btn-face {
+  margin: 40px auto;
   background-image: url(login_face_01.png);
   background-repeat: no-repeat;
   width: 430px;
