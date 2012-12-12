@@ -5,7 +5,25 @@
       = params['action'] == 'new' ? 'New Task' : 'Edit Task'
   .modal-body
     = f.input :text
-    = f.input :remind_by_date
-    = f.input :remind_by_location
+    #accordion2.accordion
+      .accordion-group
+        .accordion-heading
+          %label.checkbox
+            =f.input :remind_by_date, wrapper: :inline_checkbox, input_html: {data: {target: "#collapse-by-date"}}
+          #collapse-by-date{class: "accordion-body collapse #{'in' if @task.remind_by_date}"}
+            .accordion-inner
+              =f.input :date
+      .accordion-group
+        .accordion-heading
+          %label.checkbox
+            = f.input :remind_by_location, wrapper: :inline_checkbox, input_html: {data: {target: "#collapse-by-location"}}
+        #collapse-by-location{class: "accordion-body collapse #{'in' if @task.remind_by_location}"}
+          .accordion-inner
+            = f.input :address
+
+
+
+
+   
   .modal-footer
     = f.button :submit, class: 'btn-info'

@@ -8,3 +8,11 @@
 .ui-timepicker-rtl{ direction: rtl; }
 .ui-timepicker-rtl dl { text-align: right; }
 .ui-timepicker-rtl dl dd { margin: 0 65px 10px 10px; }
+
+.task {
+  border-bottom: 1px solid #ddd;
+}
+.task .span3 {
+  text-align: center;
+  line-height: 38px;
+}

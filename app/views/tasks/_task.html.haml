@@ -1,7 +1,10 @@
-%tr.info
-  %td
-    =task.text.upcase
-    %br
-    =task.address
-  %td
-    %button{class: "btn-info btn-small edit_task_button", "data-toggle" => "modal", "data-action" => "#{edit_list_task_path(@list, task)}"} Edit
+%li.task{id: "task_#{task.id}"}
+  .row-fluid
+    .span9
+      =task.text.upcase
+      %br
+      %p.muted
+        =task.address
+        =task.date
+    .span3
+      %button{class: "btn-info btn-small edit_task_button", "data-toggle" => "modal", "data-action" => "#{edit_list_task_path(@list, task)}"} Edit

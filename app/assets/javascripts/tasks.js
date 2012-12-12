@@ -15,7 +15,7 @@ $(function(){
     $("#collapse-by-date").collapse('toggle');
   });
 
-  $("#by-location").live("click",function(e){
+  $("#task_remind_by_location").live("click",function(e){
     $("#collapse-by-location").collapse('toggle');
   });
 });

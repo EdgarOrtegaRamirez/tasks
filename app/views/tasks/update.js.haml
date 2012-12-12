@@ -1,2 +1,2 @@
-$('table#tasks tbody').append("#{ j render @task}");
+$("#task_#{@task.id}").html("#{ j render @task}");
 $('#task_dialog').modal('hide');
