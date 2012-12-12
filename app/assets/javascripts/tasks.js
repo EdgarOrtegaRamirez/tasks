@@ -1,6 +1,6 @@
 $(function(){
   $(".btn-edit").live("click",function(e){
-    $( "#datepicker" ).datepicker({
+    $( "#datepicker" ).datetimepicker({
       'dateFormat': 'yy-mm-dd'
     });
 
@@ -9,7 +9,7 @@ $(function(){
       .attr("method",'put');
   });
 
-  $("#by-date").live("click",function(e){
+  $("#task_remind_by_date").live("click",function(e){
     $("#collapse-by-date").collapse('toggle');
   });
 

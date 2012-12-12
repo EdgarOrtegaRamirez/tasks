@@ -7,36 +7,34 @@
   %table#tasks.table.table-hover
     %tbody
       = render @tasks
+
 -#form for new task
 #new_task.modal.hide.fade{role: "dialog", tabindex: "-1"}
-  = simple_form_for [@list, @list.tasks.build], remote: true, html: {'style' => 'margin: 0'} do |f|
+  = simple_form_for [@list, @list.tasks.build], remote: true, html: {style: 'margin: 0'} do |f|
     .modal-header
       %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
       %h3#myModalLabel New Task
     .modal-body
       = f.input :text
     .modal-footer
-      %button.btn.btn-small{"aria-hidden" => "true", 'type' => 'button', "data-dismiss" => "modal"} Close
       = f.button :submit, class: 'btn-info'
 
 -#form for edit task
-#update_task.modal.hide.fade{:role => "dialog", :tabindex => "-1"}
-  .modal-header
-    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-    %h3#myModalLabel Modal header
-  .modal-body
-    Remind me
-    = simple_form_for([@list, @list.tasks.build],remote: true) do |f|
+#update_task.modal.hide.fade{role: "dialog", tabindex: "-1"}
+  = simple_form_for([@list, @list.tasks.build], remote: true, html: {style: 'margin: 0'}) do |f|
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+      %h3#myModalLabel Edit Task
+    .modal-body
+      Remind me
       #accordion2.accordion
         .accordion-group
           .accordion-heading
             %label.checkbox
-              =f.input :remind_by_date, as: :boolean, input_html: {data: {target: "#collapse-by-date"}, date: {toggle: "collapse"}, id: "by-date"}
+              =f.input :remind_by_date, wrapper: :inline_checkbox, input_html: {data: {target: "#collapse-by-date"}}
           #collapse-by-date.accordion-body.collapse
             .accordion-inner
-              = f.text_field :date, :id => "datepicker"
-              = f.input :date, as: :datetime
-
+              = f.text_field :date, id: "datepicker"
 
         .accordion-group
           .accordion-heading
@@ -46,6 +44,5 @@
           #collapse-by-location.accordion-body.collapse
             .accordion-inner
               = f.input :address
-      .modal-footer
-        %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
-        =f.button :submit, "Save Changes",{class: "task btn btn-primary","data-remote" => "true"} 
+    .modal-footer
+      =f.button :submit, "Save Changes", {class: "task btn btn-primary", "data-remote" => "true"}
