@@ -1,5 +1,5 @@
 #list_title.page-header
-  %button.btn.btn-small.pull-right{"data-target" => "#new_task", "data-toggle" => "modal"} New Task
+  %button.btn.btn-small.pull-right{"data-target" => "#new_task", "data-toggle" => "modal", type: "button"} New Task
   %h2
     =@list.name
 
@@ -16,6 +16,7 @@
     .modal-body
       = f.input :text
     .modal-footer
+      %button.btn.btn-small{"aria-hidden" => "true", 'type' => 'button', "data-dismiss" => "modal"} Close
       = f.button :submit, class: 'btn-info'
 
 -#form for edit task
@@ -24,17 +25,18 @@
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
     %h3#myModalLabel Modal header
   .modal-body
-    Remind
-    = simple_form_for([@list, @list.tasks.build],remote: true, html: {'style' => 'margin: 0'}) do |f|
+    Remind me
+    = simple_form_for([@list, @list.tasks.build],remote: true) do |f|
       #accordion2.accordion
         .accordion-group
           .accordion-heading
             %label.checkbox
-              %input{:type => "checkbox",id: "by-date","data-target" => "#collapse-by-date", "data-toggle" => "collapse"}
-                by date
+              =f.input :remind_by_date, as: :boolean, input_html: {data: {target: "#collapse-by-date"}, date: {toggle: "collapse"}, id: "by-date"}
           #collapse-by-date.accordion-body.collapse
             .accordion-inner
               = f.text_field :date, :id => "datepicker"
+              = f.input :date, as: :datetime
+
 
         .accordion-group
           .accordion-heading
@@ -45,4 +47,5 @@
             .accordion-inner
               = f.input :address
       .modal-footer
+        %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
         =f.button :submit, "Save Changes",{class: "task btn btn-primary","data-remote" => "true"} 
