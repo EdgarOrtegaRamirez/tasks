@@ -1,5 +1,11 @@
-= simple_form_for [@list, @task], remote: true do |f|
-  = f.input :text
-  = f.input :remind_by_date
-  = f.input :remind_by_location
-  = f.button :submit, class: 'btn-info'
+= simple_form_for([@list, @task], remote: true, html: {style: 'margin:0'}) do |f|
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+    %h3 
+      = params['action'] == 'new' ? 'New Task' : 'Edit Task'
+  .modal-body
+    = f.input :text
+    = f.input :remind_by_date
+    = f.input :remind_by_location
+  .modal-footer
+    = f.button :submit, class: 'btn-info'

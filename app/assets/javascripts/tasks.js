@@ -1,14 +1,15 @@
 $(function(){
-  $(".btn-edit").live("click",function(e){
-    $( "#datepicker" ).datetimepicker({
-      dateFormat: 'yy-mm-dd',
-      minDate: 0
-    });
-
-    $("#update_task .modal-body form")
-      .attr("action", $(this).data('action'))
-      .attr("method", 'put');
+  $('#new_task_button, .edit_task_button').live("click", function(e) {
+    e.preventDefault();
+    var url = $(this).data("action");
+    $.ajax({
+        url: url, type: 'GET',
+        complete: function(data){
+          $('#task_dialog').html(data.responseText).modal('show');
+        }
+      });
   });
+ 
 
   $("#task_remind_by_date").live("click",function(e){
     $("#collapse-by-date").collapse('toggle');

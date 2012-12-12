@@ -23,15 +23,24 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find(params[:id])
+    @list = List.find(params[:list_id])
+    @task = @list.tasks.find(params[:id])
+    
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
-    @task = Task.find(params[:id])
-    @task.update_attributes!(params[:task])
+    @list = List.find(params[:list_id])
+    @task = @list.tasks.find(params[:id])
 
     respond_to do |format|
-      format.js {render jsonp: @task}
-   end
+      if @task.update_attributes(params[:task])
+        format.js
+      else
+        format.html { render action: "Edit" }
+      end
+    end
   end
 end

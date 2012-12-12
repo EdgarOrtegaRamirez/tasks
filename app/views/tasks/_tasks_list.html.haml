@@ -1,5 +1,6 @@
 #list_title.page-header
-  %button.btn.btn-small.pull-right{'data-remote' => "#{new_list_task_path @list}", 'data-toggle' => "modal", 'data-target' => '#new_task_dialog'} New Task
+  %a.btn.btn-small.pull-right#new_task_button{'data-action' => "#{new_list_task_path @list}", 'data-toggle' => "modal"}
+    New Task
   %h2
     =@list.name
 
@@ -7,13 +8,6 @@
   %table#tasks.table.table-hover
     %tbody
       = render @tasks
-
--#form for new task
-#new_task_dialog.modal.hide.fade{role: "dialog", tabindex: "-1"}
-  .modal-header
-    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-    %h3#myModalLabel New Task
-  .modal-body
     
 
 -#form for edit task
