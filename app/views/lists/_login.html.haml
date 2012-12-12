@@ -1,3 +1,12 @@
-.container
+#log-carousel.carousel.slid
   %a{href: "#{user_omniauth_authorize_path(:facebook)}"}
     .btn-face
+  / Carousel items
+  .carousel-inner.thumbnail
+    .active.item
+      %img{:src => "assets/task2.jpg?_=#{Random.rand()}", style: "height: 558px; width: 940px"}
+    .item
+      %img{:src => "assets/task1.jpg?_=#{Random.rand()}", style: "height: 558px; width: 940px"}
+  / Carousel nav
+  %a.carousel-control.left{"data-slide" => "prev", :href => "#log-carousel"} &lsaquo;
+  %a.carousel-control.right{"data-slide" => "next", :href => "#log-carousel"} &rsaquo;

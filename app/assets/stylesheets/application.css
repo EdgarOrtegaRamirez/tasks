@@ -9,6 +9,8 @@
 } 
 .btn-face {
   margin: 40px auto;
+  margin-bottom: 5px;
+  margin-top: 10px;
   background-image: url(login_face_01.png);
   background-repeat: no-repeat;
   width: 430px;
