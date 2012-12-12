@@ -1,0 +1,5 @@
+= simple_form_for [@list, @task], remote: true do |f|
+  = f.input :text
+  = f.input :remind_by_date
+  = f.input :remind_by_location
+  = f.button :submit, class: 'btn-info'

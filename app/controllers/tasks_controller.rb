@@ -1,5 +1,13 @@
 class TasksController < ApplicationController
 
+  def new
+    @task = Task.new
+    @list = List.find(params[:list_id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def create
     @list = List.find(params[:list_id])
     @task = Task.new(params[:task])

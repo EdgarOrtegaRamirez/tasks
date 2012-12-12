@@ -1,5 +1,5 @@
 #list_title.page-header
-  %button.btn.btn-small.pull-right{"data-target" => "#new_task", "data-toggle" => "modal", type: "button"} New Task
+  %button.btn.btn-small.pull-right{'data-remote' => "#{new_list_task_path @list}", 'data-toggle' => "modal", 'data-target' => '#new_task_dialog'} New Task
   %h2
     =@list.name
 
@@ -9,19 +9,16 @@
       = render @tasks
 
 -#form for new task
-#new_task.modal.hide.fade{role: "dialog", tabindex: "-1"}
-  = simple_form_for [@list, @list.tasks.build], remote: true, html: {style: 'margin: 0'} do |f|
-    .modal-header
-      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-      %h3#myModalLabel New Task
-    .modal-body
-      = f.input :text
-    .modal-footer
-      = f.button :submit, class: 'btn-info'
+#new_task_dialog.modal.hide.fade{role: "dialog", tabindex: "-1"}
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+    %h3#myModalLabel New Task
+  .modal-body
+    
 
 -#form for edit task
 #update_task.modal.hide.fade{role: "dialog", tabindex: "-1"}
-  = simple_form_for([@list, @list.tasks.build], remote: true, html: {style: 'margin: 0'}) do |f|
+  = simple_form_for([@list, @list.tasks.build], remote: true, method: :put, html: {style: 'margin: 0'}) do |f|
     .modal-header
       %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
       %h3#myModalLabel Edit Task
@@ -39,7 +36,7 @@
         .accordion-group
           .accordion-heading
             %label.checkbox
-              %input{:type => "checkbox",id: "by-location","data-target" => "#collapse-by-location", "data-toggle" => "collapse"}
+              %input{type: "checkbox", id: "by-location", "data-target" => "#collapse-by-location", "data-toggle" => "collapse"}
                 by location
           #collapse-by-location.accordion-body.collapse
             .accordion-inner
