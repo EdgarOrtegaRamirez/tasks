@@ -6,4 +6,6 @@
 
 #tasks_list
   %ul#tasks.unstyled
-    =render @tasks
+    -@tasks.each do |task|
+      %li.task{id: "task_#{task.id}"}
+        =render task
