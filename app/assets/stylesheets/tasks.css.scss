@@ -11,6 +11,10 @@
 
 .task {
   border-bottom: 1px solid #ddd;
+  .completed-task {
+    color: #999;
+    text-decoration: line-through;
+  }
 }
 .task .span3 {
   text-align: center;

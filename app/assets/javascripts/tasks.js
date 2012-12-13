@@ -9,6 +9,10 @@ $(function(){
         }
       });
   });
+
+  $('.task_check').live('click', function(){
+    $('#edit_task_'+$(this).data('id')).submit();
+  });
  
 
   $("#task_remind_by_date").live("click",function(e){

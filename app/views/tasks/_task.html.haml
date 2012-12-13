@@ -1,15 +1,20 @@
 %li.task{id: "task_#{task.id}"}
   .row-fluid
     = simple_form_for([@list, task], remote: true, html: {style: 'margin:0'}) do |f|
-      .span9
-        = f.input :completed, label: false, wrapper: :inline_checkbox, inline_label: task.text
+      .span10
+        = f.input :completed, label: false, wrapper: :inline_checkbox, inline_label: task.text, input_html: {class: "task_check", data: {id: "#{task.id}"}}, label_html: {class: "completed-task"}
         %p.muted.pull-right.task_meta
           %small
             = task.address
             = task.date.strftime("| %d/%b/%Y %I:%M %P") unless task.date.nil?
         
-    .span2
+    .span1
       .task_actions.btn-group
-        %button{class: "btn btn-info btn-small edit_task_button", "data-toggle" => "modal", "data-action" => "#{edit_list_task_path(@list, task)}"} Edit
+        %button{class: "btn btn-info btn-small edit_task_button", "data-toggle" => "modal", "data-action" => "#{edit_list_task_path(@list, task)}"}
+          %i.icon-pencil.icon-white
 
-        = link_to "Delete", list_task_path(@list, task), method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-small'
+        = link_to(list_task_path(@list, task), method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-small') do
+          %i.icon-remove
+
+
+- #
