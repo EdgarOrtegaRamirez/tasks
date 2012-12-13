@@ -13,7 +13,9 @@ class TasksController < ApplicationController
     @list = List.find(params[:list_id])
     @task = Task.new(params[:task])
     @task.list_id = params[:list_id]
-
+    @task.completed = false
+    @task.date = nil unless @task.remind_by_date
+    @task.address = "" unless @task.remind_by_location
     if @task.save
       respond_to do |format|
         format.js
@@ -35,6 +37,8 @@ class TasksController < ApplicationController
   def update
     @list = List.find(params[:list_id])
     @task = @list.tasks.find(params[:id])
+    params[:task][:date] = nil if params[:task][:remind_by_date] == '0'
+    params[:task][:address] = "" if params[:task][:remind_by_location] == '0'
 
     respond_to do |format|
       if @task.update_attributes(params[:task])

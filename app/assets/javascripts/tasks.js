@@ -6,10 +6,13 @@ $(function(){
         url: url, type: 'GET',
         complete: function(data){
           $('#task_dialog').html(data.responseText).modal('show');
+          $('#datetimepicker').datetimepicker({
+            dateFormat: "yy-mm-dd"
+          });
         }
       });
   });
-
+  
   $('.task_check').live('click', function(){
     $('#edit_task_'+$(this).data('id')).submit();
   });

@@ -1,2 +1,3 @@
 $("#task_#{@task.id}").html("#{ j render @task}");
 $('#task_dialog').modal('hide');
+$("#task_#{@task.id} label.checkbox").addClass("#{'completed-task' if @task.completed}");

@@ -1,7 +1,7 @@
 .row-fluid
   = simple_form_for([@list, task], remote: true, html: {style: 'margin:0'}) do |f|
     .span10
-      = f.input :completed, label: false, wrapper: :inline_checkbox, inline_label: task.text, input_html: {class: "task_check", data: {id: "#{task.id}"}}, label_html: {class: "completed-task"}
+      = f.input :completed, label: false, wrapper: :inline_checkbox, inline_label: task.text, input_html: {class: "task_check", data: {id: "#{task.id}"}}
       %p.muted.pull-right.task_meta
         %small
           = task.address
@@ -14,4 +14,3 @@
 
       = link_to(list_task_path(@list, task), method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-small') do
         %i.icon-remove
-        

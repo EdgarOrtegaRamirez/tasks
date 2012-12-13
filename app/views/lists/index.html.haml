@@ -6,12 +6,13 @@
 
       = simple_form_for(@list, remote: true, html: {class: 'form-search'}) do |f|
         = f.input :name
-        = f.button :submit, "+"
+        = f.button :submit, "Create List"
 
       %table#lists.table.table-hover
         %tbody
           = render @lists
 
     .span8.well.well-small#tasks
+      = render 'welcome'
 
 #task_dialog.hide.fade.modal

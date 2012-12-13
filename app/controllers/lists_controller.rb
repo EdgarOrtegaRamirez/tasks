@@ -27,9 +27,10 @@ class ListsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
+  def destroy
+    @list = List.destroy(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
 end

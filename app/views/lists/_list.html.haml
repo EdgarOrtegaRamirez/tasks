@@ -1,4 +1,6 @@
 %tr.info{id: "list_#{list.id}"}
+  %td{style: "width: 20px"}
+    = link_to(list_path(list), method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-mini') do
+      %i.icon-remove
   %td
-    %a.list{"data-remote" => "true", href: "#{list_path(list)}"}
-      = list.name
+    = link_to(list.name, list_path(list), remote: true, class: 'list')
