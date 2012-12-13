@@ -3,7 +3,12 @@
  *= require jquery.ui.all
  *= require_tree .
  */
-
+#content {
+  padding-top: 15px;
+}
+.inline{
+  display: inline-block;
+}
 .btn-face:hover { 
     background-image: url(login_face_02.png);
 } 

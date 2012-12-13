@@ -1,7 +1,6 @@
-.container-fluid
-  %h1 Tasks
+.container-fluid#content
   .row-fluid
-    .span4.well
+    .span4.well.well-small
       %h3
         List
 
@@ -13,6 +12,6 @@
         %tbody
           = render @lists
 
-    .span8.well#tasks
+    .span8.well.well-small#tasks
 
 #task_dialog.hide.fade.modal

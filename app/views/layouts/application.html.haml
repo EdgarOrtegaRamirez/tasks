@@ -16,7 +16,7 @@
         -if user_signed_in?
           %li
             .btn-group
-              %a.btn.btn-primary.dropdown-toggle{"data-toggle" => "dropdown", href: "#{current_user.full_name}"}
+              %a.btn.btn-info.dropdown-toggle{"data-toggle" => "dropdown", href: "#{current_user.full_name}"}
                 =current_user.full_name
                 %span.caret
               %ul.dropdown-menu
@@ -24,13 +24,12 @@
                   =link_to "Log Out", destroy_user_session_path, method: :delete
             
 
-  .container
-    - flash.each do |type, message|
-      %div{class: "alert #{flash_class type}"}
-        %button.close{"data-dismiss" => "alert"} x
-        = message
+  - flash.each do |type, message|
+    %div{class: "alert #{flash_class type}"}
+      %button.close{"data-dismiss" => "alert"} x
+      = message
 
-    - unless user_signed_in?
-      = render 'login'
-    - else
-      = yield
+  - unless user_signed_in?
+    = render 'login'
+  - else
+    = yield

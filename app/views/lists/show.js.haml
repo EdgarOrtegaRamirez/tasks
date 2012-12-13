@@ -1,1 +1,3 @@
 $('#tasks').html("#{ j render 'tasks/tasks_list' }");
+$('#lists tr').removeClass('active');
+$("#list_#{@list.id}").addClass('active');
