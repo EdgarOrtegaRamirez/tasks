@@ -1,8 +1,9 @@
 class ListsController < ApplicationController
-  
+  before_filter :authenticate_user!
+
   def index
     @list = List.new
-    @lists = List.all
+    @lists = List.where(user_id: current_user.id)
   end
 
   def create

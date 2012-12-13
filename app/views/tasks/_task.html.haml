@@ -4,7 +4,7 @@
       =task.text.upcase
       %br
       %p.muted
-        =task.address
-        =task.date
+        = task.address 
+        = task.date.strftime("| %Y-%b-%d %I:%M %P") unless task.date.nil?
     .span3
       %button{class: "btn-info btn-small edit_task_button", "data-toggle" => "modal", "data-action" => "#{edit_list_task_path(@list, task)}"} Edit

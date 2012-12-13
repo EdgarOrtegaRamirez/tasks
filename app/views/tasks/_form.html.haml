@@ -20,10 +20,6 @@
         #collapse-by-location{class: "accordion-body collapse #{'in' if @task.remind_by_location}"}
           .accordion-inner
             = f.input :address
-
-
-
-
-   
+  
   .modal-footer
     = f.button :submit, class: 'btn-info'

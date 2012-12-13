@@ -4,15 +4,15 @@
   / Carousel items
   .carousel-inner.thumbnail
     .active.item
-      %img{:src => "assets/task2.jpg?_=#{Random.rand()}", style: "height: 558px; width: 940px"}
+      %img{src: "/assets/task2.jpg", style: "height: 558px; width: 940px"}
       .carousel-caption
         %h4 Second Thumbnail label
         %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
     .item
-      %img{:src => "assets/task1.jpg?_=#{Random.rand()}", style: "height: 558px; width: 940px"}
+      %img{src: "/assets/task1.jpg", style: "height: 558px; width: 940px"}
       .carousel-caption
         %h4 Second Thumbnail label
         %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
   / Carousel nav
-  %a.carousel-control.left{"data-slide" => "prev", :href => "#log-carousel"} &lsaquo;
-  %a.carousel-control.right{"data-slide" => "next", :href => "#log-carousel"} &rsaquo;
+  %a.carousel-control.left{"data-slide" => "prev", href: "#log-carousel"} &lsaquo;
+  %a.carousel-control.right{"data-slide" => "next", href: "#log-carousel"} &rsaquo;
