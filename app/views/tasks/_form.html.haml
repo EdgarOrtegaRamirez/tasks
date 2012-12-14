@@ -5,22 +5,26 @@
       = params['action'] == 'new' ? 'New Task' : 'Edit Task'
   .modal-body
     = f.input :text
-    #accordion2.accordion
-      .accordion-group
-        .accordion-heading
-          %label.checkbox
-            =f.input :remind_by_date, label: false, inline_label: 'Remind by Date', input_html: {data: {target: "#collapse-by-date"}}
-          #collapse-by-date{class: "accordion-body collapse #{'in' if @task.remind_by_date}"}
-            .accordion-inner
-              =f.input :date, as: :string, input_html: {id: 'datetimepicker', value: "#{@task.date.strftime("%Y-%m-%d %H:%M") unless @task.date.nil?}"}
-      .accordion-group
-        .accordion-heading
-          %label.checkbox
-            = f.input :remind_by_location, label: false, inline_label: 'Remind by Location', input_html: {data: {target: "#collapse-by-location"}}
-        #collapse-by-location{class: "accordion-body collapse #{'in' if @task.remind_by_location}"}
-          .accordion-inner
-            = f.input :address
-            = image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&maptype=hybrid&sensor=true&zoom=16&markers=#{@task.latitude}%2C#{@task.longitude}"
+    .row-fluid
+      #accordion2.accordion
+        .span4
+          .accordion-group
+            .accordion-heading
+              %label.checkbox
+                =f.input :remind_by_date, label: false, inline_label: 'Remind by Date', input_html: {data: {target: "#collapse-by-date"}}
+              #collapse-by-date{class: "accordion-body collapse #{'in' if @task.remind_by_date}"}
+                .accordion-inner
+                  =f.input :date, as: :string, input_html: {id: 'datetimepicker', value: "#{@task.date.strftime("%Y-%m-%d %H:%M") unless @task.date.nil?}", style: "width: 120px"}
+        .span8
+          .accordion-group
+            .accordion-heading
+              %label.checkbox
+                = f.input :remind_by_location, label: false, inline_label: 'Remind by Location', input_html: {data: {target: "#collapse-by-location"}, style: "width: 96%"}
+            #collapse-by-location{class: "accordion-body collapse #{'in' if @task.remind_by_location}"}
+              .accordion-inner
+                = f.input :address
+                %a.btn{href: "http://maps.google.com/maps/api/staticmap?size=640x640&maptype=hybrid&sensor=true&zoom=16&markers=#{@task.latitude}%2C#{@task.longitude}", target: "_blank"}
+                  = image_tag "http://maps.google.com/maps/api/staticmap?size=450x230&maptype=hybrid&sensor=true&zoom=16&markers=#{@task.latitude}%2C#{@task.longitude}"
   
   .modal-footer
     = f.button :submit, class: 'btn-info'
