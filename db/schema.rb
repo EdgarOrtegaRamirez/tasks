@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20121210222638) do
   create_table "tasks", :force => true do |t|
     t.string   "text"
     t.integer  "list_id"
-    t.boolean  "completed"
+    t.boolean  "completed",          :default => false
     t.boolean  "remind_by_date"
     t.datetime "date"
     t.boolean  "remind_by_location"
@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(:version => 20121210222638) do
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "repeat"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
   end
 
   create_table "users", :force => true do |t|

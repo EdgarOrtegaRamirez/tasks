@@ -3,7 +3,7 @@ class Task < ActiveRecord::Base
   validates_presence_of :text
 
   geocoded_by :address
-  after_validation :geocode, :if => :address_changed?
+  after_validation :geocode, if: :address_changed?
   
   belongs_to :list
 end

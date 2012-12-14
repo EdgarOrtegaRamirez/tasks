@@ -1,10 +1,14 @@
 require 'spec_helper'
 
 describe ListsController do
+  
+  login_user
 
   describe "GET 'index'" do
-    it "returns http success" do
-      get 'index'
+    it "assigns all list from logged in user as @lists" do
+      list = FactoryGirl.create(:list)
+      get :index
+      assigns(:lists).should eq([list])
       response.should be_success
     end
   end
@@ -16,23 +20,24 @@ describe ListsController do
     end
   end
 
-  describe "GET 'create'" do
+  describe "POST 'create'" do
     it "returns http success" do
-      get 'create'
+      post 'create'
       response.should be_success
     end
   end
 
-  describe "GET 'show'" do
-    it "returns http success" do
-      get 'show'
-      response.should be_success
+  describe "GET show" do
+    it "assigns the requested list as @list" do
+      list = FactoryGirl.create(:list)
+      get :show, {id: list.to_param}
+      assigns(:list).should eq(list)
     end
   end
 
-  describe "GET 'edit'" do
+  describe "PUT 'edit'" do
     it "returns http success" do
-      get 'edit'
+      put 'edit'
       response.should be_success
     end
   end

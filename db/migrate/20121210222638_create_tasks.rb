@@ -3,7 +3,7 @@ class CreateTasks < ActiveRecord::Migration
     create_table :tasks do |t|
       t.string :text
       t.integer :list_id
-      t.boolean :completed
+      t.boolean :completed, default: false
       t.boolean :remind_by_date
       t.datetime :date
       t.boolean :remind_by_location

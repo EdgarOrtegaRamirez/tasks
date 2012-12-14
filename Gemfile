@@ -5,7 +5,7 @@ gem 'rails', '3.2.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg'
 gem 'simple_form'
 gem 'devise'
 gem 'omniauth'
@@ -29,7 +29,13 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 group :test, :development do
-  gem "rspec-rails", "~> 2.0"
+  gem "rspec-rails"
+end
+
+group :test do
+  gem 'simplecov', require: false
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
 end
 
 # To use ActiveModel has_secure_password

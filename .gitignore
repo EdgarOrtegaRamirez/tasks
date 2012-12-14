@@ -8,6 +8,7 @@
 /.bundle
 .DS_Store
 *.exe
+/coverage
 
 # Ignore the default SQLite database.
 /db/*.sqlite3

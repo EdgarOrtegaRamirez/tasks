@@ -19,7 +19,7 @@
           .accordion-group
             .accordion-heading
               %label.checkbox
-                = f.input :remind_by_location, label: false, inline_label: 'Remind by Location', input_html: {data: {target: "#collapse-by-location"}, style: "width: 96%"}
+                = f.input :remind_by_location, label: false, inline_label: 'Remind by Location', input_html: {style: "width: 96%", data: {target: "#collapse-by-location"}}
             #collapse-by-location{class: "accordion-body collapse #{'in' if @task.remind_by_location}"}
               .accordion-inner
                 = f.input :address

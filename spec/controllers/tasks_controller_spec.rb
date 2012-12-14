@@ -2,25 +2,21 @@ require 'spec_helper'
 
 describe TasksController do
 
-  describe "GET 'index'" do
-    it "returns http success" do
-      get 'index'
-      response.should be_success
+  login_user
+
+  describe "GET index" do
+    it "assigns all tasks from a list as @tasks" do
+      task = FactoryGirl.create(:task)
+      get :index
+      assigns(:tasks).should eq([task])
     end
   end
 
-  describe "GET 'new'" do
-    it "returns http success" do
-      get 'new'
-      response.should be_success
+  describe "GET new" do
+    it "assigns a new to_do as @to_do" do
+      get :new, {}
+      assigns(:to_do).should be_a_new(ToDo)
     end
   end
-
-  describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
-    end
-  end
-
+  
 end

@@ -1,36 +1,23 @@
 class ListsController < ApplicationController
   before_filter :authenticate_user!
+  respond_to :js, except: [:index]
 
   def index
     @list = List.new
-    @lists = List.where(user_id: current_user.id)
+    @lists = current_user.lists
   end
 
   def create
-    @list = List.new(params[:list])
-    @list.user_id = current_user.id
-    
-    if @list.save
-      respond_to do |format|
-        format.js
-      end
-    else
-
-    end
+    @list = current_user.lists.build(params[:list])
+    @list.save
   end
 
   def show
     @list = List.find(params[:id])
-    @tasks = Task.where(list_id: @list.id)
-    respond_to do |format|
-      format.js
-    end
+    @tasks = @list.tasks
   end
 
   def destroy
     @list = List.destroy(params[:id])
-    respond_to do |format|
-      format.js
-    end
   end
 end
