@@ -1,12 +1,12 @@
 .row-fluid
-  = simple_form_for([@list, task], remote: true, html: {style: 'margin:0'}) do |f|
-    .span10
-      = f.input :completed, label: false, wrapper: :inline_checkbox, inline_label: task.text, input_html: {class: "task_check", data: {id: "#{task.id}"}}
-      %p.muted.pull-right.task_meta
-        %small
-          = task.address
-          = task.date.strftime("| %d/%b/%Y %I:%M %P") unless task.date.nil?
-      
+  .span10
+    %p.muted.pull-right.task_meta
+      %small
+        = task.address
+        = task.date.strftime("| %d/%b/%Y %I:%M %P") unless task.date.nil?
+    = simple_form_for([@list, task], remote: true, html: {style: 'margin: 0'}) do |f|
+      = f.input :completed, label: false, inline_label: task.text, input_html: {class: "task_check", data: {id: "#{task.id}"}},  wrapper_html: { class: "#{'completed-task' if task.completed}" } 
+  
   .span1
     .task_actions.btn-group
       %button{class: "btn btn-info btn-small edit_task_button", "data-toggle" => "modal", "data-action" => "#{edit_list_task_path(@list, task)}"}

@@ -10,13 +10,19 @@
 .ui-timepicker-rtl dl dd { margin: 0 65px 10px 10px; }
 
 .task {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
+  padding: 8px 0 0 10px;
   .completed-task {
     color: #999;
     text-decoration: line-through;
   }
+  &:hover {
+    background-color: #EEE;
+    box-shadow: 0 0 3px 1px #CCC;
+    border-radius: 4px;
+  }
 }
-.task .span3 {
+.task .task_actions {
   text-align: center;
   vertical-align: middle;
 }
