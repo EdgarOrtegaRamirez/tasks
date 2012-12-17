@@ -1,5 +1,5 @@
 .container
-  #log-carousel.carousel.slid
+  #log-carousel.carousel.slide
     %a{href: "#{user_omniauth_authorize_path(:facebook)}"}
       .btn-face
     / Carousel items
@@ -7,13 +7,13 @@
       .active.item
         %img{src: "/assets/task2.jpg", style: "height: 558px; width: 940px"}
         .carousel-caption
-          %h4 Second Thumbnail label
-          %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+          %h4 Get organized quickly
+          %p Taste the very fast performance thanks to the unique technology of Todoist HTML5. Offline access without delay or waiting.
       .item
         %img{src: "/assets/task1.jpg", style: "height: 558px; width: 940px"}
         .carousel-caption
-          %h4 Second Thumbnail label
-          %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+          %h4 Conquer the complexity
+          %p Manage projects of any complexity creating nested tasks, adding deadlines, assigning priorities and using color coding. Todoist includes everything you need and nothing Unnecessary.
     / Carousel nav
     %a.carousel-control.left{"data-slide" => "prev", href: "#log-carousel"} &lsaquo;
     %a.carousel-control.right{"data-slide" => "next", href: "#log-carousel"} &rsaquo;
