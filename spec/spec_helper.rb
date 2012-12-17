@@ -8,6 +8,17 @@ require 'rspec/rails'
 require 'rspec/autorun'
 include Devise::TestHelpers
 
+RACK_ENV = ENV['ENVIRONMENT'] ||= 'test'
+OmniAuth.config.test_mode = true
+omniauth_hash = {
+  provider: "facebook",
+  uid: "1234",
+  info: {name: "John Doe", email: "johndoe@email.com"},
+  credentials: {token: "testtoken234tsdf"}
+}
+
+OmniAuth.config.add_mock(:facebook, omniauth_hash)
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}

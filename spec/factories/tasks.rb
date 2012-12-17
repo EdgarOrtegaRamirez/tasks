@@ -2,6 +2,7 @@ FactoryGirl.define do
 
   factory :task do |f|
     text
+    f.list_id {1}
     f.completed {false}
   end
 

@@ -4,18 +4,20 @@ describe TasksController do
 
   login_user
 
-  describe "GET index" do
-    it "assigns all tasks from a list as @tasks" do
-      task = FactoryGirl.create(:task)
-      get :index
-      assigns(:tasks).should eq([task])
+  describe "GET new" do
+    it "assigns a new task as @task" do
+      list = FactoryGirl.create(:list)
+      get :new, list_id: list.id
+      assigns(:task).should be_a_new(Task)
     end
   end
 
-  describe "GET new" do
-    it "assigns a new to_do as @to_do" do
-      get :new, {}
-      assigns(:to_do).should be_a_new(ToDo)
+  describe "GET edit" do
+    it "assigns the requested task as @task" do
+      list = FactoryGirl.create(:list)
+      task = FactoryGirl.create(:task)
+      get :edit, {id: task.to_param, list_id: list.id}
+      assigns(:task).should eq(task)
     end
   end
   
